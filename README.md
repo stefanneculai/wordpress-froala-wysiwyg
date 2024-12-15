@@ -9,14 +9,14 @@ Version: 3.3.0 up to present versions of WordPress.
 ## Manual Installation
 
 Clone or [download the contents of this repo](https://github.com/froala/wordpress-froala-wysiwyg/archive/master.zip), make a new folder inside your WordPress installation under plugins folder.
-Copy the contentes that you previously downloaded to the new folder.
+Copy the contents that you previously downloaded to the new folder.
 
 The plugin will be available under plugins in your WordPress admin area.
 
 ## Installation
 
-Enter your admin area of your WordPress installation, go to plugins and cick add new. Search for Froala Wysiwyg Editor
-and follow the automated proccess. In most cases the "ftp://" credentials will be needed. This is default WordPress behaivour
+Enter your admin area of your WordPress installation, go to plugins and click add new. Search for Froala WYSIWYG Editor
+and follow the automated process. In most cases the "ftp://" credentials will be needed. This is default WordPress behaviour
 when installing new plugins.
 
 ## Integration
@@ -38,7 +38,7 @@ The activate function accepts 2 parameters but the editor can be init using just
 that can be passed to the editor.
 
 **For a complete list of options have a look over our [options list](https://www.froala.com/wysiwyg-editor/docs/options).**
-#### Constants :
+#### Constants:
 
 ```php
 define('FroalaCustomJSFolderPath', '/'.basename(__DIR__).'/custom/js');
@@ -53,7 +53,7 @@ define('FroalaCustomCSSFolderPath', '/'.basename(__DIR__).'/custom/css');
 // There are 2 available hooks that work for the front-end part of the website.
 // froala_before_public_init acts before the editor gets initialized and 
 // froala_after_public_init acts after the editor and all the plugins are loaded.
-// Callback function for these hooks acepts 4 params
+// Callback function for these hooks accepts 4 params
 
 /** Callback function for public hooks"
  *
@@ -65,10 +65,10 @@ define('FroalaCustomCSSFolderPath', '/'.basename(__DIR__).'/custom/css');
  * @return array|WP_Error
  *
  *
-* To use a public hook, it needs to be registered right after the editor get's instantiated. The propper way 
+* To use a public hook, it needs to be registered right after the editor get's instantiated. The proper way 
 * would be to store it in a variable so you can have access to the debug log.
 *
-* This example includes a custom css file and load's it acordingly, because it's used after public init the css file
+* This example includes a custom css file and loads it accordingly, because it's used after public init the css file
 * will be at the very bottom of your head tag.
 
 * To understand better, the params are in this way: 
@@ -131,7 +131,7 @@ $froala->activate('#comment',array('colorsBackground   '=> ['#61BD6D', '#1ABC9C'
 // There are 2 available hooks that work for the admin part of the website.
 // froala_before_init acts before the editor gets initialized and 
 // froala_after_init acts after the editor and all the plugins are loaded.
-// Callback function for these hooks acepts 4 params
+// Callback function for these hooks accepts 4 params
 
 /** Callback function for public hooks"
  *
@@ -143,10 +143,10 @@ $froala->activate('#comment',array('colorsBackground   '=> ['#61BD6D', '#1ABC9C'
  * @return array|WP_Error
  *
  *
-* To use a private hook, it needs to be registered before the editor get's initialized. The propper way 
+* To use a private hook, it needs to be registered before the editor get's initialized. The proper way 
 * would be to store it in a variable so you can have access to the debug log.
 *
-* This example includes a custom css file and load's it acordingly, because it's used after admin init the css file
+* This example includes a custom css file and loads it accordingly, because it's used after admin init the css file
 * will be at the very bottom of your head tag.
 
 * To understand better, the params are in this way: 
@@ -190,7 +190,7 @@ if( is_wp_error( $hook ) ) {
 ```
 
 
-#### Example of simple init :
+#### Example of simple init:
 
 ```php
 // Public method for easy instantiation for the editor.
@@ -201,7 +201,7 @@ $Froala_Editor->activate('#comment');
 
 ```
 
-#### Example of intializing using 2 params:
+#### Example of initializing using 2 params:
 
 ```php
 
@@ -234,7 +234,7 @@ $Froala_Editor->activate('#comment',array(
 
 ```
 
-#### Example for adding new plugin for Froala Editor
+#### Example for adding new plugin for Froala Editor:
 This will be visible in the admin under Froala WYSIWYG settings and can be activated/deactivated
 
 ```php
@@ -243,7 +243,7 @@ This will be visible in the admin under Froala WYSIWYG settings and can be activ
 // the path to the Custom JS folder e.g: /froala/custom/js    
 // froala_new_plugin, custom hook that integrates the new plugin and registers the new script
 // The hook takes 2 params, 1'st the path to the plugin and 2'nd the name of the plugin.
-// The if statement check if there are any erros on registering the new plugin
+// The if statement check if there are any errors on registering the new plugin
 
 $custom_plugin_path = plugins_url(FroalaEditorCustomJSFolderPath);
 $new_plugin = apply_filters('froala_new_plugin', $custom_plugin_path . '/test.js', 'test');
@@ -252,13 +252,13 @@ if( is_wp_error( $new_plugin ) ) {
 	echo $new_plugin->get_error_message();
 }
 
-After calling the hook inside the admin pannel under Froala WYSIWYG settings there will be a new plugin in the list
+After calling the hook inside the admin panel under Froala WYSIWYG settings there will be a new plugin in the list
 called "test".
 
 ```
-Add the above code to froala.php file to add plugin inside admin panel.After adding a new plugin, it needs to be activated from the admin panel. For an easier understanding the plugin will come with a dummy file placed inside "froala/custom/js/". You can delete this file at any time it's just for demo purposes.
+Add the above code to froala.php file to add plugin inside admin panel. After adding a new plugin, it needs to be activated from the admin panel. For an easier understanding the plugin will come with a dummy file placed inside "froala/custom/js/". You can delete this file at any time it's just for demo purposes.
 
-For checking out how plugin works without adding it to admin panel,use the following code inside functions file in your theme:
+For checking out how plugin works without adding it to admin panel, use the following code inside functions file in your theme:
 
 ```php
 $custom_plugin_path = plugins_url(FroalaEditorCustomJSFolderPath);
